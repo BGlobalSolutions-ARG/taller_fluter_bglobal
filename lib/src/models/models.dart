@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
+export 'product/product.dart';
 
 final formatter = NumberFormat.simpleCurrency();
 

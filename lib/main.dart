@@ -27,7 +27,10 @@ void main() async {
   ErrorWidget.builder = RootWidget.onError;
 
   SystemChrome.setPreferredOrientations(
-    const [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
+    const [
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ],
   );
 
   ResultError.onError = (va) => log.d('${va.error} ${va.stackTrace()}');

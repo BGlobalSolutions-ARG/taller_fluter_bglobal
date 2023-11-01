@@ -1,3 +1,4 @@
+import 'package:bglobal/src/domain/product/product_domain.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logger/logger.dart';
@@ -14,9 +15,9 @@ mixin Dependencies {
     // final auth = FirebaseAuth.instanceFor(app: fire);
     // final googleSignIn = GoogleSignIn(scopes: AuthRepositoryImpl.scopes);
     // final authRepository = AuthRepositoryImpl(googleSignIn, hive);
-    // getIt.registerFactory<AuthDomain>(
-    //   () => AuthDomainImpl(authRepository),
-    // );
+    getIt.registerFactory<ProductDomain>(
+      () => ProductDomainImpl(ProductRepositoryImpl(hive)),
+    );
 
     // getIt.registerFactory<JobDomain>(
     //   () => JobDomainImpl(JobRepositoryImpl(hive)),

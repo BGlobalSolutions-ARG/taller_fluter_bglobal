@@ -14,7 +14,10 @@ class HomePage extends StateWidget<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Discover'),
-        actions: const [Icon(Icons.shopping_bag_outlined), gap16],
+        actions: [
+          const Icon(Icons.shopping_bag_outlined).toButton(state.getProducts),
+          gap16
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16.0),
@@ -60,7 +63,7 @@ class HomePage extends StateWidget<HomeController> {
                 return SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    children: state.categories
                         .map(
                           (index) => CupertinoButton(
                             padding: EdgeInsets.zero,
@@ -87,16 +90,47 @@ class HomePage extends StateWidget<HomeController> {
               },
             ),
             gap32,
-            Center(
-              child: Container(
-                width: 45,
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Palette.gray4,
-                  borderRadius: BorderRadius.circular(6.0),
-                ),
+            Expanded(
+              child: RxWidget<bool>(
+                notifier: state.isLoading,
+                builder: (ctx, isLoading) {
+                  if (isLoading) return loadingIndicator;
+                  if (state.list.isEmpty) {
+                    return const Center(
+                      child: Text('No hay productos'),
+                    );
+                  }
+                  return CupertinoScrollbar(
+                    child: GridView.builder(
+                      itemCount: state.list.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 26,
+                        crossAxisSpacing: 16,
+                        childAspectRatio: 4 / 3,
+                      ),
+                      itemBuilder: (context, index) {
+                        final item = state.list[index];
+                        return Container(
+                          padding: const EdgeInsets.all(6.0),
+                          child: Column(
+                            children: [
+                              Image.network(
+                                item.thumbnail,
+                                
+                                fit: BoxFit.fill,
+                              ),
+                              Text(item.title)
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
               ),
-            )
+            ),
           ],
         ),
       ),
