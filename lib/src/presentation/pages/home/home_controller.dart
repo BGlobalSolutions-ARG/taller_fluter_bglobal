@@ -1,5 +1,7 @@
 import 'package:bglobal/src/domain/product/product_domain.dart';
 import 'package:bglobal/src/repository/repository.dart';
+import 'package:bglobal/src/routes/bglobal_routes.dart';
+import 'package:flutter/widgets.dart';
 import 'package:occam/occam.dart';
 
 class HomeController extends StateController {
@@ -29,7 +31,12 @@ class HomeController extends StateController {
     isLoading.value = false;
   }
 
-  void getProducts() {
-    domain.getList();
+  void getProducts() => domain.getList();
+
+  void onTap(Product item) {
+    Navigator.of(context).pushNamed(
+      RouteName.product,
+      arguments: {'data': item},
+    );
   }
 }

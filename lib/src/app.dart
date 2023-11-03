@@ -1,8 +1,9 @@
-import 'package:bglobal/src/presentation/pages/home/home_page.dart';
+import 'package:bglobal/src/routes/bglobal_routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'domain/domains.dart';
 import 'presentation/widgets/widgets.dart';
+import 'routes/routes.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -20,13 +21,13 @@ class App extends StatelessWidget {
         Locale('es', 'ES'),
         Locale('es', 'PY'),
       ],
-      initialRoute: '/',
+      initialRoute: RouteName.root,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      routes: {'/': (context) => const HomePage()},
+      onGenerateRoute: RouteMiddleware.generateRoute,
       scaffoldMessengerKey: DialogHelper.key,
       restorationScopeId: 'app',
     );

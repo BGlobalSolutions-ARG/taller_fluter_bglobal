@@ -1,6 +1,7 @@
-import 'package:bglobal/src/presentation/widgets/widgets.dart';
+import 'package:bglobal/src/presentation/pages/home/widgets/product_widget.dart';
 import 'package:occam/occam.dart';
 
+import '../../widgets/widgets.dart';
 import 'home_controller.dart';
 
 class HomePage extends StateWidget<HomeController> {
@@ -106,24 +107,15 @@ class HomePage extends StateWidget<HomeController> {
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        mainAxisSpacing: 26,
-                        crossAxisSpacing: 16,
-                        childAspectRatio: 4 / 3,
+                        mainAxisSpacing: 12,
+                        crossAxisSpacing: 12,
+                        childAspectRatio: 6 / 7,
                       ),
                       itemBuilder: (context, index) {
                         final item = state.list[index];
-                        return Container(
-                          padding: const EdgeInsets.all(6.0),
-                          child: Column(
-                            children: [
-                              Image.network(
-                                item.thumbnail,
-                                
-                                fit: BoxFit.fill,
-                              ),
-                              Text(item.title)
-                            ],
-                          ),
+                        return ProductWidget(
+                          item: item,
+                          onTap: () => state.onTap(item),
                         );
                       },
                     ),

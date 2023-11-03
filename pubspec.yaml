@@ -26,6 +26,7 @@ dependencies:
   fluttertoast: ^8.2.2
   cached_network_image: ^3.3.0
   flutter_cache_manager: ^3.3.1
+  ff_annotation_route_library: ^3.0.0
   
 
 

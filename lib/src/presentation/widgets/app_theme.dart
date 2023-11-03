@@ -16,21 +16,21 @@ mixin AppTheme {
     // primaryColorBrightness: Brightness.dark,
 
     fontFamily: 'Poppins',
-    colorScheme: const ColorScheme(
-      secondary: Palette.primary,
-      onBackground: Colors.black,
-      onError: Colors.white,
-      brightness: Brightness.light,
-      onPrimary: Colors.white,
-      onSecondary: Colors.white,
-      surface: Colors.white,
-      // primaryVariant: Palette.primary,
-      error: Colors.red,
-      // secondaryVariant: Palette.primary,
-      background: Palette.background,
-      onSurface: Colors.white,
-      primary: Palette.primary,
-    ),
+    // colorScheme: const ColorScheme(
+    //   secondary: Palette.primary,
+    //   onBackground: Colors.black,
+    //   onError: Colors.white,
+    //   brightness: Brightness.light,
+    //   onPrimary: Colors.white,
+    //   onSecondary: Colors.white,
+    //   surface: Colors.white,
+    //   // primaryVariant: Palette.primary,
+    //   error: Colors.red,
+    //   // secondaryVariant: Palette.primary,
+    //   background: Palette.background,
+    //   onSurface: Colors.white,
+    //   primary: Palette.primary,
+    // ),
     
 
     inputDecorationTheme: const InputDecorationTheme(
@@ -135,6 +135,14 @@ mixin AppTheme {
     //   primary: Palette.primary,
     //   // secondary: Palette.,
     // ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      // backgroundColor: Colors.deepOrange,
+      selectedItemColor: Palette.gray1,
+      unselectedItemColor: Palette.gray4,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      type: BottomNavigationBarType.fixed,
+    ),
     textTheme: const TextTheme(
         // headlineSmall: TextStyle(
         //   // fontFamily: 'Exo',
@@ -153,28 +161,7 @@ mixin AppTheme {
         ),
 
     splashColor: Colors.transparent,
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Palette.background,
-      // enableFeedback: false,
-      selectedLabelStyle: TextStyle(fontSize: 14.0),
-      unselectedLabelStyle: TextStyle(fontSize: 14.0),
-      // elevation: 12.0,
-      enableFeedback: false,
-      elevation: 0,
 
-      selectedIconTheme: IconThemeData(
-        size: 24.0,
-      ),
-      unselectedIconTheme: IconThemeData(
-        size: 24.0,
-      ),
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Palette.primary,
-      unselectedItemColor: Palette.gray2,
-
-      showUnselectedLabels: true,
-      showSelectedLabels: true,
-    ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: Palette.primary,
     ),
