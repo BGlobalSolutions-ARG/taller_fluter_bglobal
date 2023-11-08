@@ -33,25 +33,25 @@ mixin AppTheme {
     // ),
     
 
-    inputDecorationTheme: const InputDecorationTheme(
-      border: _border,
-      focusedBorder: _border,
-      errorBorder: _border,
-      contentPadding: EdgeInsets.symmetric(
-        horizontal: 16.0,
-        vertical: 16.0,
-      ),
-      constraints: BoxConstraints(
-        minHeight: 68,
-        // maxHeight: 68,
-      ),
-      filled: true,
+    // inputDecorationTheme: const InputDecorationTheme(
+    //   border: _border,
+    //   focusedBorder: _border,
+    //   errorBorder: _border,
+    //   contentPadding: EdgeInsets.symmetric(
+    //     horizontal: 16.0,
+    //     vertical: 16.0,
+    //   ),
+    //   constraints: BoxConstraints(
+    //     minHeight: 68,
+    //     // maxHeight: 68,
+    //   ),
+    //   filled: true,
 
-      fillColor: Palette.gray6,
-      labelStyle: TextStyle(color: Colors.black, fontSize: 12),
+    //   fillColor: Palette.gray6,
+    //   labelStyle: TextStyle(color: Colors.black, fontSize: 12),
 
-      // fillColor: Colors.white,
-    ),
+    //   // fillColor: Colors.white,
+    // ),
 
     // backgroundColor: Colors.white,
     tabBarTheme: const TabBarTheme(

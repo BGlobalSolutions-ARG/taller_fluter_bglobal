@@ -31,7 +31,9 @@ class HomeController extends StateController {
     isLoading.value = false;
   }
 
-  void getProducts() => domain.getList();
+  void getProducts() {
+    navigator.pushNamed(RouteName.form);
+  }
 
   void onTap(Product item) {
     Navigator.of(context).pushNamed(

@@ -12,24 +12,27 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'BGlobal',
-      theme: AppTheme.theme,
-      supportedLocales: const [
-        Locale('es', 'AR'),
-        Locale('es', 'ES'),
-        Locale('es', 'PY'),
-      ],
-      initialRoute: RouteName.root,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      onGenerateRoute: RouteMiddleware.generateRoute,
-      scaffoldMessengerKey: DialogHelper.key,
-      restorationScopeId: 'app',
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'BGlobal',
+        theme: AppTheme.theme,
+        supportedLocales: const [
+          Locale('es', 'AR'),
+          Locale('es', 'ES'),
+          Locale('es', 'PY'),
+        ],
+        initialRoute: RouteName.root,
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        onGenerateRoute: RouteMiddleware.generateRoute,
+        scaffoldMessengerKey: DialogHelper.key,
+        restorationScopeId: 'app',
+      ),
     );
   }
 }

@@ -8,6 +8,7 @@
 import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
 import 'package:flutter/widgets.dart';
 
+import '../presentation/pages/form/form_page.dart';
 import '../presentation/pages/product/product_page.dart';
 import '../presentation/pages/root/root_page.dart';
 
@@ -25,6 +26,16 @@ FFRouteSettings getRouteSettings({
         name: name,
         arguments: arguments,
         builder: () => RootPage(
+          key: asT<Key?>(
+            safeArguments['key'],
+          ),
+        ),
+      );
+    case '/form':
+      return FFRouteSettings(
+        name: name,
+        arguments: arguments,
+        builder: () => FormPage(
           key: asT<Key?>(
             safeArguments['key'],
           ),
