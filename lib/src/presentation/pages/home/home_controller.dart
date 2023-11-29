@@ -41,4 +41,7 @@ class HomeController extends StateController {
       arguments: {'data': item},
     );
   }
+
+  void onChanged(String value) {
+  }
 }

@@ -34,10 +34,10 @@ void main() async {
   );
 
   ResultError.onError = (va) => log.d('${va.error} ${va.stackTrace()}');
-
   await Dependencies.init(
     hive: Hive,
   );
+
 
   runApp(const App());
 }

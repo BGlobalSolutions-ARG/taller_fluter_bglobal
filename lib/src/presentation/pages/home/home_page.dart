@@ -1,8 +1,8 @@
-import 'package:bglobal/src/presentation/pages/home/widgets/product_widget.dart';
 import 'package:occam/occam.dart';
 
 import '../../widgets/widgets.dart';
 import 'home_controller.dart';
+import 'widgets/product_widget.dart';
 
 class HomePage extends StateWidget<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -16,7 +16,10 @@ class HomePage extends StateWidget<HomeController> {
       appBar: AppBar(
         title: const Text('Discover'),
         actions: [
-          const Icon(Icons.shopping_bag_outlined).toButton(state.getProducts),
+          const Icon(
+            Icons.shopping_bag_outlined,
+            key: Key('shop_icon'),
+          ).toButton(state.getProducts),
           gap16
         ],
       ),
@@ -31,34 +34,33 @@ class HomePage extends StateWidget<HomeController> {
                 borderRadius: BorderRadius.circular(12),
               ),
               padding: const EdgeInsets.all(12.0),
-              child: const Row(
+              child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.search,
-                    size: 26,
                     color: Palette.gray3,
                   ),
                   gap12,
                   Expanded(
-                    child: Text(
-                      'What are you looking for',
-                      style: TextStyle(
-                        color: Palette.gray3,
-                        // letterSpacing: 1.1,
+                    child: TextFormField(
+                      onChanged: state.onChanged,
+                      decoration: const InputDecoration.collapsed(
+                        hintText: '¿Que estas buscando?',
                       ),
                     ),
                   ),
                   gap12,
-                  Icon(
+                  const Icon(
                     Icons.camera_alt,
                     size: 26,
                     color: Palette.gray3,
+                    key: Key('camera_icon'),
                   ),
                 ],
               ),
             ),
             gap24,
-            RxWidget(
+            RxWidget<int>(
               notifier: state.categorySelected,
               builder: (context, selected) {
                 return SingleChildScrollView(
@@ -67,6 +69,7 @@ class HomePage extends StateWidget<HomeController> {
                     children: state.categories
                         .map(
                           (index) => CupertinoButton(
+                            key: Key('button-$index'),
                             padding: EdgeInsets.zero,
                             minSize: 0,
                             onPressed: () => state.onCategorySelected(index),
