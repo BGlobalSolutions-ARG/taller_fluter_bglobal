@@ -27,15 +27,14 @@ dependencies:
   cached_network_image: ^3.3.0
   flutter_cache_manager: ^3.3.1
   ff_annotation_route_library: ^3.0.0
-  
-
+  # iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
   flutter_application_id: ^2.0.0-dev
   flutter_test:
     sdk: flutter
-  mockito: ^5.4.3  
+  mockito: ^5.4.3
 
   flutter_lints: ^2.0.0
 
@@ -43,23 +42,47 @@ flutter:
   uses-material-design: true
 
   assets:
-    # - .env 
+    # - .env
     - assets/fonts/
     - assets/images/
   fonts:
     - family: Majes
       fonts:
         - asset: assets/fonts/Majes_icons.ttf
+    - family: iconsax
+      fonts:
+        - asset: assets/fonts/iconsax.ttf
+          
+          
+    - family: Urbanist
+      fonts:
+        - asset: assets/fonts/Urbanist/static/Urbanist-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Urbanist/static/Urbanist-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Urbanist/static/Urbanist-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Urbanist/static/Urbanist-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Urbanist/static/Urbanist-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Urbanist/static/Urbanist-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Urbanist/static/Urbanist-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Urbanist/static/Urbanist-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Urbanist/static/Urbanist-Thin.ttf
+          weight: 100
 
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/logo.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
-    
 
 flutter_application_id:
-  android: 
+  android:
     id: "com.mati.gabriel"
     name: "Taller de Flutter"
   ios:

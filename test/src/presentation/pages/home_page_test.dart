@@ -15,17 +15,11 @@ class MockProductRepository extends Mock implements ProductRepository {}
 
 void main() {
   group('HomePage', () {
-    setUp(() {
-      final domain = MockProductDomain();
-      getIt.registerFactory<ProductDomain>(
-        () => domain,
-      );
-      // when(domain.getList()).thenAnswer(
-      //   (_) => Future.value(
-      //     Success(<Product>[]),
-      //   ),
-      // );
-    });
+    final domain = MockProductDomain();
+    getIt.registerFactory<ProductDomain>(
+      () => domain,
+    );
+
     testWidgets(
       "discover is available",
       (WidgetTester tester) async {
@@ -40,6 +34,7 @@ void main() {
         await tester.enterText(find.byType(TextFormField), 'zapato');
         await tester.pump();
         expect(find.text('zapato'), findsOneWidget);
+        // compute((message) => null, message)
       },
     );
     testWidgets(

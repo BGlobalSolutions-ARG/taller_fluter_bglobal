@@ -10,7 +10,10 @@ class RootController extends StateController {
     const HomePage(),
     const ExplorePage(),
     const Center(
-      child: Text('Favorite'),
+      child: Text(
+        'Favorite',
+        style: TextStyle(fontWeight: FontWeight.w100,fontSize: 24),
+      ),
     ),
     const Center(
       child: Text('Profile'),

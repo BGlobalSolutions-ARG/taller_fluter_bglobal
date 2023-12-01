@@ -3,19 +3,12 @@ import 'package:flutter/services.dart';
 import 'widgets.dart';
 
 mixin AppTheme {
-  static const _border = OutlineInputBorder(
-    borderSide: BorderSide.none,
-    borderRadius: BorderRadius.all(
-      Radius.circular(6.0),
-    ),
-  );
-
   static final theme = ThemeData(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     primaryColor: Palette.primary,
     // primaryColorBrightness: Brightness.dark,
 
-    fontFamily: 'Poppins',
+    fontFamily: 'Urbanist',
     // colorScheme: const ColorScheme(
     //   secondary: Palette.primary,
     //   onBackground: Colors.black,
@@ -31,7 +24,6 @@ mixin AppTheme {
     //   onSurface: Colors.white,
     //   primary: Palette.primary,
     // ),
-    
 
     // inputDecorationTheme: const InputDecorationTheme(
     //   border: _border,
@@ -72,6 +64,7 @@ mixin AppTheme {
       elevation: 0,
       centerTitle: false,
       titleTextStyle: TextStyle(
+        fontFamily: 'Urbanist',
         color: Palette.gray1,
         fontWeight: FontWeight.w700,
         fontSize: 24.0,
@@ -89,7 +82,7 @@ mixin AppTheme {
         // foregroundColor:
       ),
     ),
-    
+
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: Colors.white,
       indicatorColor: Colors.transparent,

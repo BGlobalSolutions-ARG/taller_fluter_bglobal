@@ -1,5 +1,6 @@
+import 'package:bglobal/src/presentation/widgets/iconsax_icons.dart';
+import 'package:bglobal/src/presentation/widgets/widgets.dart';
 import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
-import 'package:flutter/material.dart';
 import 'package:occam/occam.dart';
 
 import 'root_controller.dart';
@@ -25,37 +26,42 @@ class RootPage extends StateWidget<RootController> {
         notifier: state.currentIndex,
         builder: (ctx, index) => BottomNavigationBar(
           currentIndex: index,
+          // backgroundColor: Colors.black,
           onTap: state.onTap,
           items: const [
             BottomNavigationBarItem(
               label: 'Home',
               tooltip: 'Home',
               icon: Icon(
-                Icons.home,
+                // Icons.adaptive.flip_camera,
+                // Icons.arrow_back
+                Iconsax.home_2,
+                color: Colors.black,
               ),
             ),
             BottomNavigationBarItem(
               label: 'Explore',
               tooltip: 'Explore',
               icon: Icon(
-                Icons.explore,
+                Iconsax.discover,
               ),
             ),
             BottomNavigationBarItem(
               label: 'Favorites',
               tooltip: 'Favorites',
               icon: Icon(
-                Icons.favorite,
+                Iconsax.heart
               ),
             ),
             BottomNavigationBarItem(
               label: 'Profile',
               tooltip: 'Profile',
               icon: Icon(
-                Icons.person,
+                Iconsax.user,
               ),
             ),
           ],
+            
         ),
       ),
     );

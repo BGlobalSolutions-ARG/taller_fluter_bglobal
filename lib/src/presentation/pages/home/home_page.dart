@@ -1,5 +1,6 @@
 import 'package:occam/occam.dart';
 
+import '../../widgets/iconsax_icons.dart';
 import '../../widgets/widgets.dart';
 import 'home_controller.dart';
 import 'widgets/product_widget.dart';
@@ -14,7 +15,9 @@ class HomePage extends StateWidget<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Discover'),
+        title: const Text(
+          'Discover',
+        ),
         actions: [
           const Icon(
             Icons.shopping_bag_outlined,
@@ -37,7 +40,7 @@ class HomePage extends StateWidget<HomeController> {
               child: Row(
                 children: [
                   const Icon(
-                    Icons.search,
+                    Iconsax.search_normal,
                     color: Palette.gray3,
                   ),
                   gap12,
@@ -51,7 +54,7 @@ class HomePage extends StateWidget<HomeController> {
                   ),
                   gap12,
                   const Icon(
-                    Icons.camera_alt,
+                    Iconsax.camera,
                     size: 26,
                     color: Palette.gray3,
                     key: Key('camera_icon'),
@@ -62,36 +65,34 @@ class HomePage extends StateWidget<HomeController> {
             gap24,
             RxWidget<int>(
               notifier: state.categorySelected,
-              builder: (context, selected) {
-                return SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: state.categories
-                        .map(
-                          (index) => CupertinoButton(
-                            key: Key('button-$index'),
-                            padding: EdgeInsets.zero,
-                            minSize: 0,
-                            onPressed: () => state.onCategorySelected(index),
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 12.0),
-                              child: Text(
-                                'Categoría ${index + 1}',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700,
-                                  color: index == selected
-                                      ? Palette.gray1
-                                      : Palette.gray4,
-                                ),
+              builder: (context, selected) => SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: state.categories
+                      .map(
+                        (index) => CupertinoButton(
+                          key: Key('button-$index'),
+                          padding: EdgeInsets.zero,
+                          minSize: 0,
+                          onPressed: () => state.onCategorySelected(index),
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 12.0),
+                            child: Text(
+                              'Categoría ${index + 1}',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                color: index == selected
+                                    ? Palette.gray1
+                                    : Palette.gray4,
                               ),
                             ),
                           ),
-                        )
-                        .toList(),
-                  ),
-                );
-              },
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
             ),
             gap32,
             Expanded(
